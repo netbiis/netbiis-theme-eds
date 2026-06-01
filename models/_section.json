@@ -33,27 +33,6 @@
             {
               "name": "Highlight",
               "value": "highlight"
-            },
-            {
-              "name": "Container",
-              "children": [
-                {
-                  "name": "Narrow",
-                  "value": "narrow"
-                },
-                {
-                  "name": "Wide",
-                  "value": "wide"
-                },
-                {
-                  "name": "Full Width",
-                  "value": "full-width"
-                },
-                {
-                  "name": "Full Width Padded",
-                  "value": "full-width-padded"
-                }
-              ]
             }
           ]
         }
