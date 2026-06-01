@@ -1,0 +1,208 @@
+/* ==================================================
+   NETBIIS EDS THEME
+   DESIGN TOKENS
+   ==================================================
+
+   Objetivo:
+
+   Centralizar todos os tokens da plataforma.
+
+   Regras:
+
+   1. Nenhum bloco deve utilizar valores
+      hardcoded para layout.
+
+   2. Sempre utilizar tokens.
+
+   Exemplo:
+
+   ❌ errado
+
+   max-width: 1280px;
+
+   ✅ correto
+
+   max-width:
+     var(--container-default);
+
+================================================== */
+
+
+:root {
+
+  /* ==================================================
+     CONTAINERS
+     ==================================================
+
+     Utilizados pela Foundation de Containers.
+
+     Correspondência Figma:
+
+     CNT-001 Default
+     CNT-002 Narrow
+     CNT-003 Wide
+     CNT-004 Full Width
+     CNT-005 Full Width Padded
+
+  ================================================== */
+
+  --container-default: 1280px;
+
+  --container-narrow: 800px;
+
+  --container-wide: 1440px;
+
+  --container-padding-mobile: 16px;
+
+  --container-padding-tablet: 24px;
+
+  --container-padding-desktop: 24px;
+
+
+  /* ==================================================
+     GRID
+     ==================================================
+
+     Sistema oficial da plataforma.
+
+     Correspondência Figma:
+
+     12 colunas
+     Gap Mobile: 16px
+     Gap Desktop: 24px
+
+  ================================================== */
+
+  --grid-columns: 12;
+
+  --grid-gap-mobile: 16px;
+
+  --grid-gap-tablet: 24px;
+
+  --grid-gap-desktop: 24px;
+
+
+  /* ==================================================
+     BREAKPOINTS
+     ==================================================
+
+     Não utilizados diretamente em media queries
+     (CSS custom properties ainda possuem limitações).
+
+     Servem como documentação oficial da plataforma.
+
+  ================================================== */
+
+  --bp-mobile: 768px;
+
+  --bp-tablet: 1024px;
+
+  --bp-desktop: 1200px;
+
+
+  /* ==================================================
+     SPACING SCALE
+     ==================================================
+
+     Reservado para Foundation V2.
+
+     Utilizar para:
+
+     - margens
+     - paddings
+     - gaps
+
+  ================================================== */
+
+  --space-0: 0;
+
+  --space-1: 8px;
+
+  --space-2: 16px;
+
+  --space-3: 24px;
+
+  --space-4: 32px;
+
+  --space-5: 48px;
+
+  --space-6: 64px;
+
+  --space-7: 96px;
+
+  --space-8: 128px;
+
+
+  /* ==================================================
+     TYPOGRAPHY
+     ==================================================
+
+     Reservado para Foundation V2.
+
+  ================================================== */
+
+  --font-size-xs: 12px;
+
+  --font-size-sm: 14px;
+
+  --font-size-md: 16px;
+
+  --font-size-lg: 20px;
+
+  --font-size-xl: 24px;
+
+  --font-size-2xl: 32px;
+
+  --font-size-3xl: 48px;
+
+
+  /* ==================================================
+     BORDER RADIUS
+     ==================================================
+
+     Reservado para Foundation V2.
+
+  ================================================== */
+
+  --radius-sm: 4px;
+
+  --radius-md: 8px;
+
+  --radius-lg: 16px;
+
+  --radius-xl: 24px;
+
+
+  /* ==================================================
+     SHADOWS
+     ==================================================
+
+     Reservado para Foundation V2.
+
+  ================================================== */
+
+  --shadow-sm:
+    0 1px 2px rgb(0 0 0 / 8%);
+
+  --shadow-md:
+    0 4px 12px rgb(0 0 0 / 10%);
+
+  --shadow-lg:
+    0 12px 32px rgb(0 0 0 / 12%);
+
+
+  /* ==================================================
+     MOTION
+     ==================================================
+
+     Reservado para Foundation V2.
+
+  ================================================== */
+
+  --transition-fast: .2s;
+
+  --transition-normal: .3s;
+
+  --transition-slow: .5s;
+
+}

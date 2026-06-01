@@ -1,0 +1,206 @@
+/* ==================================================
+   NETBIIS EDS THEME
+   CONTAINERS FOUNDATION
+   ==================================================
+
+   Objetivo:
+
+   Padronizar os containers da plataforma.
+
+   Aproveitamos a estrutura nativa do EDS:
+
+   main
+    └── .section
+         └── div   <- container
+
+   Nunca definir max-width dentro dos blocos.
+
+   Os blocos devem confiar nos containers
+   definidos aqui.
+
+   Containers disponíveis:
+
+   - default
+   - narrow
+   - wide
+   - full-width
+   - full-width-padded
+
+================================================== */
+
+
+/* ==================================================
+   DEFAULT CONTAINER
+   ==================================================
+
+   Container padrão da plataforma.
+
+   Utilizado pela maioria dos blocos.
+
+   Exemplo:
+
+   Hero
+   Features
+   Cards
+   Testimonials
+   Footer
+
+================================================== */
+
+main > .section > div {
+
+  width: 100%;
+
+  max-width: var(--container-default);
+
+  margin-inline: auto;
+
+  padding-inline:
+    var(--container-padding-mobile);
+
+}
+
+
+/* ==================================================
+   DESKTOP PADDING
+   ==================================================
+
+   Aumenta o respiro lateral em telas maiores.
+
+================================================== */
+
+@media (min-width: 1200px) {
+
+  main > .section > div {
+
+    padding-inline:
+      var(--container-padding-desktop);
+
+  }
+
+}
+
+
+/* ==================================================
+   NARROW CONTAINER
+   ==================================================
+
+   Uso:
+
+   Section Metadata
+
+   Style: narrow
+
+   Ideal para:
+
+   - FAQ
+   - Rich Text
+   - Formulários
+   - Artigos
+
+================================================== */
+
+main > .section.narrow > div {
+
+  max-width:
+    var(--container-narrow);
+
+}
+
+
+/* ==================================================
+   WIDE CONTAINER
+   ==================================================
+
+   Uso:
+
+   Section Metadata
+
+   Style: wide
+
+   Ideal para:
+
+   - Grids grandes
+   - Carrosséis
+   - Logos
+   - Comparações
+
+================================================== */
+
+main > .section.wide > div {
+
+  max-width:
+    var(--container-wide);
+
+}
+
+
+/* ==================================================
+   FULL WIDTH
+   ==================================================
+
+   Uso:
+
+   Section Metadata
+
+   Style: full-width
+
+   Remove qualquer limitação de largura.
+
+   Ideal para:
+
+   - Hero com background
+   - Vídeos
+   - Banners
+
+================================================== */
+
+main > .section.full-width > div {
+
+  width: 100%;
+
+  max-width: none;
+
+  padding-inline: 0;
+
+}
+
+
+/* ==================================================
+   FULL WIDTH PADDED
+   ==================================================
+
+   Uso:
+
+   Section Metadata
+
+   Style: full-width-padded
+
+   Mantém o conteúdo ocupando
+   toda a largura disponível,
+   mas preserva respiro lateral.
+
+================================================== */
+
+main > .section.full-width-padded > div {
+
+  width: 100%;
+
+  max-width: none;
+
+  padding-inline:
+    var(--container-padding-mobile);
+
+}
+
+
+@media (min-width: 1200px) {
+
+  main > .section.full-width-padded > div {
+
+    padding-inline:
+      var(--container-padding-desktop);
+
+  }
+
+}
