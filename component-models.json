@@ -155,6 +155,23 @@
             ]
           },
           {
+            "name": "Content Width",
+            "children": [
+              {
+                "name": "Default",
+                "value": "content-default"
+              },
+              {
+                "name": "Narrow",
+                "value": "content-narrow"
+              },
+              {
+                "name": "Wide",
+                "value": "content-wide"
+              }
+            ]
+          },
+          {
             "name": "Themes",
             "children": [
               {

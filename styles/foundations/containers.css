@@ -1,4 +1,27 @@
 /* ==================================================
+   CONTENT WIDTH DEFAULTS
+
+   Responsável por controlar
+   a largura do conteúdo interno
+   dos blocos.
+
+================================================== */
+
+main > .section {
+
+  --content-container-width:
+    var(--container-default);
+
+  --content-container-padding-mobile:
+    var(--container-padding-mobile);
+
+  --content-container-padding-desktop:
+    var(--container-padding-desktop);
+
+}
+
+
+/* ==================================================
    CNT-001
 
    Container Consumers
@@ -24,6 +47,7 @@ header nav {
     var(--container-padding-mobile);
 
 }
+
 
 /* ==================================================
    CNT-002 NARROW
@@ -76,6 +100,42 @@ main > .section.full-width-padded > div {
 
   padding-inline:
     var(--container-padding-mobile);
+
+}
+
+
+/* ==================================================
+   CNT-006 CONTENT DEFAULT
+   ================================================== */
+
+main > .section.content-default {
+
+  --content-container-width:
+    var(--container-default);
+
+}
+
+
+/* ==================================================
+   CNT-007 CONTENT NARROW
+   ================================================== */
+
+main > .section.content-narrow {
+
+  --content-container-width:
+    var(--container-narrow);
+
+}
+
+
+/* ==================================================
+   CNT-008 CONTENT WIDE
+   ================================================== */
+
+main > .section.content-wide {
+
+  --content-container-width:
+    var(--container-wide);
 
 }
 

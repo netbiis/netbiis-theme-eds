@@ -1,21 +1,153 @@
 /*
- * Netbiis Edge Platform
+ * ==================================================
+ * NETBIIS EDGE PLATFORM
+ * ==================================================
+ *
+ * Arquivo principal de carregamento da plataforma.
+ *
+ * Ordem de carregamento:
+ *
+ * 1. Fonts
+ * 2. Foundations
+ * 3. Base
+ * 4. Themes
+ *
+ * Esta ordem deve ser mantida para garantir
+ * previsibilidade na cascata do CSS.
+ *
+ * --------------------------------------------------
+ * FONTS
+ * --------------------------------------------------
+ *
+ * Carregamento das fontes oficiais da plataforma.
+ *
+ * Responsável por:
+ * - Font Faces
+ * - Fallbacks
+ * - Font Loading
+ *
  */
 
 @import url('./fonts.css');
 
-/* Foundations */
+
+/*
+ * ==================================================
+ * FOUNDATIONS
+ * ==================================================
+ *
+ * Foundation representa as regras estruturais
+ * da plataforma.
+ *
+ * NÃO depende de HTML específico.
+ *
+ * NÃO depende de blocos.
+ *
+ * NÃO depende de páginas.
+ *
+ * Foundation define:
+ *
+ * - Tokens globais
+ * - Containers
+ * - Breakpoints
+ * - Espaçamentos
+ * - Temas globais
+ * - Componentes compartilhados
+ *
+ * Pergunta:
+ *
+ * "Se todos os blocos fossem removidos,
+ * essa regra ainda faria sentido?"
+ *
+ * Se a resposta for SIM,
+ * provavelmente pertence à Foundation.
+ *
+ */
+
+/* Design Tokens */
 @import url('foundations/tokens.css');
+
+/* Container Strategy */
 @import url('foundations/containers.css');
+
+/* Global Spacing Strategy */
 @import url('foundations/spacing.css');
+
+/* Global Theme Strategy */
 @import url('foundations/themes.css');
 
-/* Base */
+/* Shared Platform Components */
+@import url('foundations/buttons.css');
+
+
+/*
+ * ==================================================
+ * BASE
+ * ==================================================
+ *
+ * Base define o comportamento padrão
+ * dos elementos HTML nativos.
+ *
+ * Responsável por:
+ *
+ * - Reset CSS
+ * - Tipografia padrão
+ * - Links
+ * - Imagens
+ *
+ * Pergunta:
+ *
+ * "Estou estilizando uma tag HTML?"
+ *
+ * Exemplos:
+ *
+ * h1
+ * h2
+ * p
+ * a
+ * img
+ *
+ * Se a resposta for SIM,
+ * provavelmente pertence ao Base.
+ *
+ */
+
+/* Browser Reset */
 @import url('base/reset.css');
+
+/* Headings, Paragraphs, Lists */
 @import url('base/typography.css');
+
+/* Anchor Elements */
 @import url('base/links.css');
-@import url('base/buttons.css');
+
+/* Images and Media */
 @import url('base/images.css');
 
-/* Themes */
+
+/*
+ * ==================================================
+ * THEMES
+ * ==================================================
+ *
+ * Camada responsável pela identidade visual
+ * de uma implementação específica.
+ *
+ * Um mesmo projeto pode possuir múltiplos temas.
+ *
+ * Exemplos:
+ *
+ * default.css
+ * corporate.css
+ * dark.css
+ * campaign.css
+ *
+ * Themes consomem Foundation.
+ *
+ * Themes NÃO devem redefinir
+ * a arquitetura da plataforma.
+ *
+ */
+
+/* Default Theme */
 @import url('themes/default.css');

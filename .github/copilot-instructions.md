@@ -2,12 +2,14 @@
 
 Antes de criar ou alterar qualquer bloco, consulte obrigatoriamente:
 
+- docs/project-context.md
 - docs/foundations.md
 - docs/block-architecture.md
 - docs/responsive-strategy.md
 - docs/breakpoints.md
 - docs/development-guidelines.md
 - docs/containers.md
+- docs/block-template.md
 
 ---
 
@@ -24,11 +26,27 @@ Garantir que todos os blocos da plataforma sigam os mesmos padrões arquiteturai
 Responsável por:
 
 - Containers
+- Content Width
 - Breakpoints
 - Tokens Globais
-- Typography
 - Themes
+- Buttons
 - Espaçamento Global
+
+Foundation controla a página.
+
+---
+
+## Base
+
+Responsável por:
+
+- Reset
+- Typography
+- Links
+- Images
+
+Base controla o comportamento padrão dos elementos HTML.
 
 ---
 
@@ -41,6 +59,9 @@ Responsáveis por:
 - Componentes visuais
 - Comportamento responsivo
 - Estados e interações
+- Tokens específicos do bloco
+
+Blocos controlam apenas a si mesmos.
 
 ---
 
@@ -93,6 +114,52 @@ footer .footer > div
 ```
 
 Nunca reproduzir containers dentro de blocos.
+
+---
+
+# Content Width
+
+Content Width controla a largura do conteúdo interno.
+
+Utilizar quando um bloco precisar de:
+
+- Background Full Width
+- Conteúdo centralizado
+
+Exemplos:
+
+- Hero
+- Banner
+- CTA
+- Promo Banner
+
+## Opções
+
+```css
+content-default
+
+content-narrow
+
+content-wide
+```
+
+## Utilizar
+
+```css
+var(--content-container-width)
+```
+
+## Nunca utilizar
+
+```css
+max-width: 800px;
+
+max-width: 900px;
+
+max-width: 1200px;
+```
+
+para limitar conteúdo interno.
 
 ---
 
@@ -233,6 +300,10 @@ Exemplos:
 ```css
 --container-default
 
+--container-narrow
+
+--container-wide
+
 --space-3
 
 --heading-font-size-l
@@ -273,6 +344,11 @@ Não permitido:
 
 }
 ```
+
+### Regra prática
+
+- Utilizado por um único bloco → Token Local
+- Utilizado por múltiplos blocos → Avaliar promoção para Foundation
 
 ---
 
@@ -334,8 +410,61 @@ main
 
 ---
 
+# Processo de Criação de Blocos
+
+Antes de criar um bloco, responder:
+
+## 1. Qual Grid Strategy será utilizada?
+
+Escolher apenas uma:
+
+- Layout Grid
+- Collection Grid
+- Adaptive Columns
+
+---
+
+## 2. O bloco precisa de Container?
+
+Se sim:
+
+Utilizar Foundation.
+
+Nunca criar containers próprios.
+
+---
+
+## 3. O bloco precisa de Content Width?
+
+Utilizar:
+
+- content-default
+- content-narrow
+- content-wide
+
+---
+
+## 4. O bloco precisa de Tokens próprios?
+
+Criar tokens locais no bloco.
+
+---
+
+## 5. O bloco precisa de responsividade?
+
+Utilizar exclusivamente os breakpoints oficiais.
+
+---
+
 # Regra Final
 
 Foundation controla a página.
 
 Blocos controlam apenas a si mesmos.
+
+Quando existir dúvida:
+
+1. Reutilizar uma solução existente.
+2. Reutilizar tokens existentes.
+3. Reutilizar containers existentes.
+4. Somente depois criar uma nova abstração.

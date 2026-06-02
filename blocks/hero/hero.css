@@ -6,19 +6,32 @@
   /* ==================================================
      HERO TOKENS
      ================================================== */
-
   --hero-min-height: 300px;
   --hero-padding-y: var(--space-5);
-  --hero-content-max-width:
-    var(--container-default);
 
   position: relative;
   min-height: var(--hero-min-height);
   padding-block:
     var(--hero-padding-y);
-  padding-inline:
-    var(--container-padding-mobile);
+}
 
+
+/* ==================================================
+   HERO CONTENT WRAPPER
+   ================================================== */
+
+.hero > div:last-child {
+  width: 100%;
+}
+
+
+.hero > div:last-child > div {
+  width: 100%;
+  max-width:
+    var(--content-container-width);
+  margin-inline: auto;
+  padding-inline:
+    var(--content-container-padding-mobile);
 }
 
 
@@ -27,12 +40,8 @@
    ================================================== */
 
 .hero h1 {
-  max-width:
-    var(--hero-content-max-width);
-  margin-inline: auto;
   color:
     var(--background-color);
-
 }
 
 
@@ -46,7 +55,6 @@
   z-index: -1;
   box-sizing: border-box;
   object-fit: cover;
-
 }
 
 
@@ -54,7 +62,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-
 }
 
 
@@ -63,10 +70,8 @@
    ================================================== */
 
 @media (width >= 1200px) {
-  .hero {
+  .hero > div:last-child > div {
     padding-inline:
-      var(--container-padding-desktop);
-
+      var(--content-container-padding-desktop);
   }
-
 }

@@ -210,3 +210,79 @@ styles/foundations/containers.css
 ```
 
 Os blocos não devem implementar regras próprias de largura máxima.
+
+
+# Content Width
+
+Além do Container da Section, a plataforma permite controlar a largura do conteúdo interno.
+
+Isso é útil para blocos que possuem:
+
+- Background Full Width
+- Conteúdo centralizado
+
+Exemplos:
+
+- Hero
+- Banner
+- CTA
+- Promo Banner
+
+---
+
+## Opções
+
+### Content Default
+
+```css
+content-default
+```
+
+Utiliza:
+
+```css
+var(--container-default)
+```
+
+---
+
+### Content Narrow
+
+```css
+content-narrow
+```
+
+Utiliza:
+
+```css
+var(--container-narrow)
+```
+
+---
+
+### Content Wide
+
+```css
+content-wide
+```
+
+Utiliza:
+
+```css
+var(--container-wide)
+```
+
+---
+
+## Exemplo
+
+Section:
+
+```html
+<div class="section full-width content-narrow">
+```
+
+Resultado:
+
+- Background ocupa 100% da largura
+- Conteúdo utiliza largura Narrow
