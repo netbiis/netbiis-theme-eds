@@ -15,3 +15,29 @@ main .section.highlight {
     0;
 
 }
+
+/* ==================================================
+   DARK
+   ================================================== */
+
+main .section.dark {
+  background-color:
+    var(--dark-color);
+
+  margin: 0;
+
+  padding:
+    var(--space-5)
+    0;
+}
+
+main .section.dark h1,
+main .section.dark h2,
+main .section.dark h3,
+main .section.dark h4,
+main .section.dark h5,
+main .section.dark p,
+main .section.dark a{
+  color:
+    var(--light-color);
+}
