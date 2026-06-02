@@ -1,20 +1,14 @@
 .cards {
-
   --cards-min-width: 260px;
 
 }
 
 
 .cards > ul {
-
   list-style: none;
-
   margin: 0;
-
   padding: 0;
-
   display: grid;
-
   grid-template-columns:
     repeat(
       auto-fill,
@@ -23,17 +17,14 @@
         1fr
       )
     );
-
   gap: var(--space-3);
 
 }
 
 
 .cards > ul > li {
-
   border:
     1px solid var(--border-color);
-
   background-color:
     var(--background-color);
 
@@ -41,7 +32,6 @@
 
 
 .cards .cards-card-body {
-
   margin:
     var(--space-2);
 
@@ -49,18 +39,14 @@
 
 
 .cards .cards-card-image {
-
   line-height: 0;
 
 }
 
 
 .cards > ul > li img {
-
   width: 100%;
-
   aspect-ratio: 4 / 3;
-
   object-fit: cover;
 
 }
