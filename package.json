@@ -1,8 +1,8 @@
 {
-  "name": "@adobe/aem-boilerplate",
+  "name": "@netbiis/netbiis-theme-eds",
   "private": true,
   "version": "1.3.0",
-  "description": "Starter project for Adobe Helix",
+  "description": "Netbiis Edge Platform - Theme for Adobe Edge Delivery Services",
   "scripts": {
     "lint:js": "eslint . --ext .json,.js,.mjs",
     "lint:css": "stylelint \"blocks/**/*.css\" \"styles/*.css\"",
@@ -16,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adobe/aem-boilerplate.git"
+    "url": "git+https://github.com/netbiis/netbiis-theme-ed.git"
   },
-  "author": "Adobe",
+  "author": "Netbiis",
   "license": "Apache License 2.0",
   "bugs": {
-    "url": "https://github.com/adobe/aem-boilerplate/issues"
+    "url": "https://github.com/netbiis/netbiis-theme-ed/issues"
   },
-  "homepage": "https://github.com/adobe/aem-boilerplate#readme",
+  "homepage": "https://github.com/netbiis/netbiis-theme-ed#readme",
   "devDependencies": {
     "@babel/eslint-parser": "7.28.6",
     "eslint": "8.57.1",
