@@ -2,6 +2,7 @@
 coverage/*
 logs/*
 node_modules/*
+aem-block-collection-xwalk-main/*
 
 helix-importer-ui
 .DS_Store

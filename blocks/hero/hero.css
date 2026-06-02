@@ -26,6 +26,7 @@
 
 
 .hero > div:last-child > div {
+  box-sizing: border-box;
   width: 100%;
   max-width:
     var(--content-container-width);
