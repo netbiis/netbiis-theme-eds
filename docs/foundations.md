@@ -1,352 +1,251 @@
-# Olivh Edge Platform
+# Foundations
 
-## Foundations v1
+## Objetivo
 
-Este documento define os fundamentos de layout da plataforma Olivh Edge Platform.
+A Foundation é a camada base da plataforma Netbiis Edge Platform.
 
-Todos os projetos devem seguir estes padrões para garantir consistência entre UX, Design e Desenvolvimento.
+Ela define os padrões globais utilizados por todos os projetos construídos sobre Adobe Edge Delivery Services.
 
----
+O objetivo é garantir:
 
-# Objetivos
-
-* Padronizar containers
-* Padronizar grids
-* Padronizar layouts
-* Reduzir divergências entre Figma e código
-* Facilitar reutilização de blocos
+* Consistência visual
+* Consistência de desenvolvimento
+* Reutilização de componentes
+* Alinhamento entre UX, Design e Desenvolvimento
 
 ---
 
-# Containers
-
-Containers definem a largura máxima do conteúdo dentro de uma seção.
-
-A escolha do container deve ser feita durante a etapa de UX e Design.
-
----
-
-## CNT-001 — Default
-
-Container padrão da plataforma.
-
-### Uso
-
-* Hero
-* Features
-* Cards
-* Testimonials
-* Footer
-* Conteúdo geral
-
-### Configuração
-
-| Propriedade     | Valor  |
-| --------------- | ------ |
-| Max Width       | 1280px |
-| Padding Mobile  | 16px   |
-| Padding Desktop | 24px   |
-
----
-
-## CNT-002 — Narrow
-
-Container reduzido para leitura e formulários.
-
-### Uso
-
-* FAQ
-* Formulários
-* Rich Text
-* Artigos
-* Conteúdo textual
-
-### Configuração
-
-| Propriedade | Valor |
-| ----------- | ----- |
-| Max Width   | 800px |
-
----
-
-## CNT-003 — Wide
-
-Container expandido para componentes com maior necessidade horizontal.
-
-### Uso
-
-* Grids complexos
-* Comparações
-* Galerias
-* Logos
-* Carrosséis
-
-### Configuração
-
-| Propriedade | Valor  |
-| ----------- | ------ |
-| Max Width   | 1440px |
-
----
-
-## CNT-004 — Full Width
-
-Remove qualquer limitação horizontal.
-
-### Uso
-
-* Hero com background
-* Vídeos
-* Banners
-* Seções especiais
-
-### Configuração
-
-| Propriedade | Valor  |
-| ----------- | ------ |
-| Max Width   | Nenhum |
-| Padding     | Nenhum |
-
----
-
-## CNT-005 — Full Width Padded
-
-Ocupa toda a largura disponível mantendo respiro lateral.
-
-### Uso
-
-* Hero com background
-* CTA destacado
-* Seções promocionais
-
-### Configuração
-
-| Propriedade     | Valor  |
-| --------------- | ------ |
-| Max Width       | Nenhum |
-| Padding Mobile  | 16px   |
-| Padding Desktop | 24px   |
-
----
-
-# Grid System
-
-Toda a plataforma utiliza um único sistema de grid.
-
-Nenhum bloco pode criar seu próprio grid.
-
----
-
-## Configuração
-
-| Propriedade | Valor |
-| ----------- | ----- |
-| Colunas     | 12    |
-| Gap Mobile  | 16px  |
-| Gap Desktop | 24px  |
-
----
-
-# Breakpoints
-
-## Mobile
+# Estrutura
 
 ```text
-0px - 767px
-```
+styles/
 
-## Tablet
-
-```text
-768px - 1199px
-```
-
-## Desktop
-
-```text
-1200px+
+├── foundations/
+│   ├── tokens.css
+│   ├── containers.css
+│   └── spacing.css
+│
+├── base/
+│   ├── reset.css
+│   ├── typography.css
+│   ├── links.css
+│   ├── buttons.css
+│   └── images.css
+│
+├── themes/
+│   └── default.css
+│
+└── styles.css
 ```
 
 ---
 
-# Layouts Oficiais
+# Foundations
 
-Os layouts abaixo devem ser utilizados sempre que possível.
+Responsáveis por regras estruturais da plataforma.
 
-Caso um novo layout seja necessário, ele deve ser incorporado à Foundation antes de ser utilizado em um bloco.
+## tokens.css
 
----
+Contém:
 
-## LYT-001 — 50 / 50
-
-### Estrutura
-
-```text
-6 + 6
-```
-
-### Uso
-
-* Hero
-* Conteúdo + Imagem
-* Comparações simples
-
----
-
-## LYT-002 — 4 / 8
-
-### Estrutura
-
-```text
-4 + 8
-```
-
-### Uso
-
-* Sidebar + Conteúdo
-* Destaques
-* Conteúdo com imagem dominante
-
----
-
-## LYT-003 — 5 / 7
-
-### Estrutura
-
-```text
-5 + 7
-```
-
-### Uso
-
-* Hero padrão da plataforma
-* Conteúdo + Imagem
-
----
-
-## LYT-004 — Cards 3 Colunas
-
-### Estrutura
-
-```text
-4 + 4 + 4
-```
-
-### Uso
-
-* Features
-* Benefícios
-* Cards de conteúdo
-
----
-
-## LYT-005 — Cards 4 Colunas
-
-### Estrutura
-
-```text
-3 + 3 + 3 + 3
-```
-
-### Uso
-
-* Logos
-* Estatísticas
-* Ícones
-* Cards compactos
-
----
-
-# Regras da Plataforma
-
-## Containers
-
-Nenhum bloco pode definir:
-
-* max-width
-* largura de container
-* container próprio
-
-Todos os containers devem utilizar a Foundation.
-
----
-
-## Grid
-
-Nenhum bloco pode definir:
-
-* grid-template-columns próprio
-* quantidade de colunas própria
-* gaps próprios
-
-Todos os grids devem utilizar a Foundation.
-
----
-
-## Layouts
-
-Sempre utilizar os layouts oficiais da plataforma.
-
-Se um novo layout for necessário:
-
-1. Validar com UX
-2. Validar com Design
-3. Adicionar à Foundation
-4. Documentar neste arquivo
-
----
-
-# Convenção entre Figma e Código
-
-## Containers
-
-| Figma   | Código            |
-| ------- | ----------------- |
-| CNT-001 | default           |
-| CNT-002 | narrow            |
-| CNT-003 | wide              |
-| CNT-004 | full-width        |
-| CNT-005 | full-width-padded |
-
----
-
-## Layouts
-
-| Figma   | Código         |
-| ------- | -------------- |
-| LYT-001 | layout-50-50   |
-| LYT-002 | layout-4-8     |
-| LYT-003 | layout-5-7     |
-| LYT-004 | layout-cards-3 |
-| LYT-005 | layout-cards-4 |
-
----
-
-# Roadmap
-
-## Foundation v1
-
-* Containers
-* Grid
-
-## Foundation v2
-
+* Colors
+* Typography Tokens
+* Container Tokens
 * Spacing Scale
-* Typography Scale
-* Border Radius
-* Shadows
+* Navigation Tokens
 
-## Foundation v3
+---
 
-* Themes
-* Color Tokens
-* Motion Tokens
+## containers.css
 
-## Foundation v4
+Responsável pelos containers globais.
 
-* Component Library
-* Hero
-* Cards
-* FAQ
-* Forms
+Define:
+
+* Default
+* Narrow
+* Wide
+* Full Width
+* Full Width Padded
+
+---
+
+## spacing.css
+
+Responsável por:
+
+* Espaçamento entre seções
+* Espaçamentos globais da plataforma
+
+---
+
+# Base
+
+Responsável pelos estilos globais.
+
+## reset.css
+
+* Body
+* Fontes
+* Inputs
+* Header
 * Footer
+
+---
+
+## typography.css
+
+* Headings
+* Paragraphs
+* Lists
+* Code Blocks
+
+---
+
+## links.css
+
+* Links globais
+
+---
+
+## buttons.css
+
+* Botões globais
+
+---
+
+## images.css
+
+* Imagens
+* Ícones
+
+---
+
+# Grid Strategy
+
+A plataforma utiliza dois tipos de grid.
+
+Cada um resolve um problema diferente.
+
+---
+
+## Layout Grid
+
+Utilizado para estruturar páginas e seções.
+
+Exemplos:
+
+- Hero
+- Content + Image
+- CTA
+- Footer
+- Header
+- Columns
+
+### Regra
+
+```css
+grid-template-columns: repeat(12, 1fr);
+```
+
+### Objetivo
+
+Representar o grid de layout utilizado pelo UX e Design no Figma.
+
+---
+
+## Collection Grid
+
+Utilizado para listas e coleções de componentes.
+
+Exemplos:
+
+- Cards
+- Produtos
+- Artigos
+- Logos
+- Equipe
+- Cases
+
+### Regra
+
+```css
+grid-template-columns:
+  repeat(
+    auto-fill,
+    minmax(...)
+  );
+```
+
+### Objetivo
+
+Permitir que a quantidade de itens varie sem necessidade de definir spans manualmente.
+
+---
+
+## Quando usar cada um
+
+### Layout Grid
+
+Quando existe uma estrutura fixa.
+
+Exemplos:
+
+- 5 / 7
+- 4 / 8
+- 6 / 6
+
+---
+
+### Collection Grid
+
+Quando existe uma quantidade variável de itens.
+
+Exemplos:
+
+- 3 cards
+- 5 cards
+- 8 cards
+- 12 cards
+
+---
+
+## Regra da Plataforma
+
+Não utilizar Layout Grid para coleções.
+
+Não utilizar Collection Grid para layout estrutural de página.
+
+
+# Themes
+
+Responsável por customizações de marca.
+
+Inicialmente:
+
+```text
+themes/default.css
+```
+
+No futuro:
+
+```text
+themes/
+├── corporate.css
+├── university.css
+├── healthcare.css
+└── ecommerce.css
+```
+
+---
+
+# Princípios
+
+A Foundation deve ser:
+
+* Simples
+* Previsível
+* Reutilizável
+* Independente dos blocos
+
+Nenhum bloco deve alterar as regras da Foundation.

@@ -1,50 +1,63 @@
-/* ==================================================
-   NETBIIS EDS THEME
-   DESIGN TOKENS
-   ==================================================
-
-   Objetivo:
-
-   Centralizar todos os tokens da plataforma.
-
-   Regras:
-
-   1. Nenhum bloco deve utilizar valores
-      hardcoded para layout.
-
-   2. Sempre utilizar tokens.
-
-   Exemplo:
-
-   ❌ errado
-
-   max-width: 1280px;
-
-   ✅ correto
-
-   max-width:
-     var(--container-default);
-
-================================================== */
-
-
 :root {
 
   /* ==================================================
+     COLORS
+     ================================================== */
+
+  --background-color: #fff;
+
+  --light-color: #f8f8f8;
+
+  --dark-color: #505050;
+
+  --text-color: #131313;
+
+  --link-color: #3b63fb;
+
+  --link-hover-color: #1d3ecf;
+
+
+  /* ==================================================
+     TYPOGRAPHY
+     ================================================== */
+
+  --body-font-family:
+    roboto,
+    roboto-fallback,
+    sans-serif;
+
+  --heading-font-family:
+    roboto-condensed,
+    roboto-condensed-fallback,
+    sans-serif;
+
+  --body-font-size-m: 22px;
+
+  --body-font-size-s: 19px;
+
+  --body-font-size-xs: 17px;
+
+  --heading-font-size-xxl: 55px;
+
+  --heading-font-size-xl: 44px;
+
+  --heading-font-size-l: 34px;
+
+  --heading-font-size-m: 27px;
+
+  --heading-font-size-s: 24px;
+
+  --heading-font-size-xs: 22px;
+
+  /* ==================================================
+     NAVIGATION
+     ================================================== */
+
+  --nav-height: 64px;
+
+  /* ==================================================
      CONTAINERS
-     ==================================================
-
-     Utilizados pela Foundation de Containers.
-
-     Correspondência Figma:
-
-     CNT-001 Default
-     CNT-002 Narrow
-     CNT-003 Wide
-     CNT-004 Full Width
-     CNT-005 Full Width Padded
-
-  ================================================== */
+     ================================================== */
 
   --container-default: 1280px;
 
@@ -54,65 +67,11 @@
 
   --container-padding-mobile: 16px;
 
-  --container-padding-tablet: 24px;
-
   --container-padding-desktop: 24px;
-
-
-  /* ==================================================
-     GRID
-     ==================================================
-
-     Sistema oficial da plataforma.
-
-     Correspondência Figma:
-
-     12 colunas
-     Gap Mobile: 16px
-     Gap Desktop: 24px
-
-  ================================================== */
-
-  --grid-columns: 12;
-
-  --grid-gap-mobile: 16px;
-
-  --grid-gap-tablet: 24px;
-
-  --grid-gap-desktop: 24px;
-
-
-  /* ==================================================
-     BREAKPOINTS
-     ==================================================
-
-     Não utilizados diretamente em media queries
-     (CSS custom properties ainda possuem limitações).
-
-     Servem como documentação oficial da plataforma.
-
-  ================================================== */
-
-  --bp-mobile: 768px;
-
-  --bp-tablet: 1024px;
-
-  --bp-desktop: 1200px;
-
 
   /* ==================================================
      SPACING SCALE
-     ==================================================
-
-     Reservado para Foundation V2.
-
-     Utilizar para:
-
-     - margens
-     - paddings
-     - gaps
-
-  ================================================== */
+     ================================================== */
 
   --space-0: 0;
 
@@ -134,75 +93,53 @@
 
 
   /* ==================================================
-     TYPOGRAPHY
-     ==================================================
+     BORDERS
+     ================================================== */
 
-     Reservado para Foundation V2.
+  --border-color: #dadada;
 
-  ================================================== */
+  --border-radius-sm: 4px;
 
-  --font-size-xs: 12px;
+  --border-radius-md: 8px;
 
-  --font-size-sm: 14px;
+  --border-radius-lg: 16px;
 
-  --font-size-md: 16px;
+/* ==================================================
+   BREAKPOINTS
+   ================================================== */
 
-  --font-size-lg: 20px;
+  --breakpoint-sm: 600px;
 
-  --font-size-xl: 24px;
+  --breakpoint-md: 900px;
 
-  --font-size-2xl: 32px;
+  --breakpoint-lg: 1200px;
 
-  --font-size-3xl: 48px;
-
-
-  /* ==================================================
-     BORDER RADIUS
-     ==================================================
-
-     Reservado para Foundation V2.
-
-  ================================================== */
-
-  --radius-sm: 4px;
-
-  --radius-md: 8px;
-
-  --radius-lg: 16px;
-
-  --radius-xl: 24px;
+  --breakpoint-xl: 1440px;
 
 
-  /* ==================================================
-     SHADOWS
-     ==================================================
+}
 
-     Reservado para Foundation V2.
+@media (width >= 900px) {
 
-  ================================================== */
+  :root {
 
-  --shadow-sm:
-    0 1px 2px rgb(0 0 0 / 8%);
+    --body-font-size-m: 18px;
 
-  --shadow-md:
-    0 4px 12px rgb(0 0 0 / 10%);
+    --body-font-size-s: 16px;
 
-  --shadow-lg:
-    0 12px 32px rgb(0 0 0 / 12%);
+    --body-font-size-xs: 14px;
 
+    --heading-font-size-xxl: 45px;
 
-  /* ==================================================
-     MOTION
-     ==================================================
+    --heading-font-size-xl: 36px;
 
-     Reservado para Foundation V2.
+    --heading-font-size-l: 28px;
 
-  ================================================== */
+    --heading-font-size-m: 22px;
 
-  --transition-fast: .2s;
+    --heading-font-size-s: 20px;
 
-  --transition-normal: .3s;
+    --heading-font-size-xs: 18px;
 
-  --transition-slow: .5s;
-
+  }
 }

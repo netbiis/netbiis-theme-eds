@@ -1,37 +1,91 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
-}
+/* ==================================================
+   HERO
+   ================================================== */
 
 .hero {
+
+  /* ==================================================
+     HERO TOKENS
+     ================================================== */
+
+  --hero-min-height: 300px;
+
+  --hero-padding-y: var(--space-5);
+
+  --hero-content-max-width:
+    var(--container-default);
+
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+
+  min-height: var(--hero-min-height);
+
+  padding-block:
+    var(--hero-padding-y);
+
+  padding-inline:
+    var(--container-padding-mobile);
+
 }
+
+
+/* ==================================================
+   HERO CONTENT
+   ================================================== */
 
 .hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+
+  max-width:
+    var(--hero-content-max-width);
+
+  margin-inline: auto;
+
+  color:
+    var(--background-color);
+
 }
+
+
+/* ==================================================
+   HERO MEDIA
+   ================================================== */
 
 .hero picture {
+
   position: absolute;
-  z-index: -1;
+
   inset: 0;
-  object-fit: cover;
+
+  z-index: -1;
+
   box-sizing: border-box;
+
+  object-fit: cover;
+
 }
+
 
 .hero img {
-  object-fit: cover;
+
   width: 100%;
+
   height: 100%;
+
+  object-fit: cover;
+
 }
 
-@media (width >= 900px) {
+
+/* ==================================================
+   BP-LG
+   ================================================== */
+
+@media (width >= 1200px) {
+
   .hero {
-    padding: 40px 32px;
+
+    padding-inline:
+      var(--container-padding-desktop);
+
   }
+
 }

@@ -1,33 +1,45 @@
+.columns {
+
+  --columns-gap: var(--space-4);
+
+}
+
 .columns > div {
-  display: flex;
-  flex-direction: column;
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: var(--columns-gap);
+
 }
 
 .columns img {
+
   width: 100%;
-}
 
-.columns > div > div {
-  order: 1;
-}
-
-.columns > div > .columns-img-col {
-  order: 0;
 }
 
 .columns > div > .columns-img-col img {
+
   display: block;
+
 }
-
+/* ==================================================
+   BP-MD | Desktop
+   ================================================== */
 @media (width >= 900px) {
+
   .columns > div {
+
+    grid-template-columns:
+      repeat(
+        auto-fit,
+        minmax(0, 1fr)
+      );
+
     align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+
   }
 
-  .columns > div > div {
-    flex: 1;
-    order: unset;
-  }
 }

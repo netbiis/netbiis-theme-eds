@@ -31,8 +31,34 @@
           "label": "Style",
           "options": [
             {
-              "name": "Highlight",
-              "value": "highlight"
+              "name": "Containers",
+              "children": [
+                {
+                  "name": "Narrow (800px)",
+                  "value": "narrow"
+                },
+                {
+                  "name": "Wide (1440px)",
+                  "value": "wide"
+                },
+                {
+                  "name": "Full Width",
+                  "value": "full-width"
+                },
+                {
+                  "name": "Full Width Padded",
+                  "value": "full-width-padded"
+                }
+              ]
+            },
+            {
+              "name": "Themes",
+              "children": [
+                {
+                  "name": "Highlight",
+                  "value": "highlight"
+                }
+              ]
             }
           ]
         }

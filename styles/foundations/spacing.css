@@ -1,0 +1,37 @@
+/* ==================================================
+   SECTION SPACING
+   ================================================== */
+
+main > .section {
+
+  margin:
+    var(--space-5)
+    0;
+
+}
+
+
+main > .section:first-of-type {
+
+  margin-top: 0;
+
+}
+
+
+  /* ==================================================
+    LIGHT / HIGHLIGHT
+    ================================================== */
+
+  main .section.light,
+  main .section.highlight {
+
+    background-color:
+      var(--light-color);
+
+    margin: 0;
+
+    padding:
+      var(--space-5)
+      0;
+
+  }

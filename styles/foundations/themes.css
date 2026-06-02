@@ -1,0 +1,17 @@
+/* ==================================================
+   LIGHT / HIGHLIGHT
+   ================================================== */
+
+main .section.light,
+main .section.highlight {
+
+  background-color:
+    var(--light-color);
+
+  margin: 0;
+
+  padding:
+    var(--space-5)
+    0;
+
+}
