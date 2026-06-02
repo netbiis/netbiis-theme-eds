@@ -1,0 +1,100 @@
+/* ==================================================
+   ACCORDION
+   ================================================== */
+
+.accordion {
+  /* ==================================================
+     ACCORDION TOKENS
+     ================================================== */
+  --accordion-icon-size: 6px;
+  --accordion-icon-border: 2px;
+  --accordion-icon-offset: 18px;
+  --accordion-padding-right: 46px;
+  --accordion-transition-duration: 0.2s;
+}
+
+
+/* ==================================================
+   ACCORDION ITEM
+   ================================================== */
+
+.accordion details {
+  border: 1px solid var(--border-color);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.accordion details + details {
+  margin-top: var(--space-3);
+}
+
+.accordion details p {
+  margin-bottom: 0.8em;
+}
+
+
+/* ==================================================
+   ACCORDION SUMMARY (HEADER)
+   ================================================== */
+
+.accordion details summary {
+  position: relative;
+  padding: 0 var(--space-2);
+  padding-right: var(--accordion-padding-right);
+  cursor: pointer;
+  list-style: none;
+  overflow: auto;
+  transition: background-color var(--accordion-transition-duration);
+}
+
+.accordion details[open] summary {
+  background-color: var(--light-color);
+}
+
+.accordion details summary:focus,
+.accordion details summary:hover {
+  background-color: var(--light-color);
+}
+
+.accordion details summary::-webkit-details-marker {
+  display: none;
+}
+
+
+/* ==================================================
+   ACCORDION ICON
+   ================================================== */
+
+.accordion details summary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: var(--accordion-icon-offset);
+  transform: translateY(-50%) rotate(135deg);
+  width: var(--accordion-icon-size);
+  height: var(--accordion-icon-size);
+  border: var(--accordion-icon-border) solid;
+  border-width: var(--accordion-icon-border) var(--accordion-icon-border) 0 0;
+  transition: transform var(--accordion-transition-duration);
+}
+
+.accordion details[open] summary::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+
+/* ==================================================
+   ACCORDION BODY (CONTENT)
+   ================================================== */
+
+.accordion details .accordion-item-body {
+  padding: 0 var(--space-2);
+}
+
+.accordion details:not([open]) .accordion-item-body {
+  display: none;
+}
+
+.accordion details[open] .accordion-item-body {
+  border-top: 1px solid var(--border-color);
+  background-color: var(--background-color);
+}
