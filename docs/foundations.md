@@ -123,7 +123,7 @@ Responsável pelos estilos globais.
 
 # Grid Strategy
 
-A plataforma utiliza dois tipos de grid.
+A plataforma utiliza tres tipos oficiais de grid.
 
 Cada um resolve um problema diferente.
 
@@ -140,7 +140,6 @@ Exemplos:
 - CTA
 - Footer
 - Header
-- Columns
 
 ### Regra
 
@@ -183,6 +182,30 @@ Permitir que a quantidade de itens varie sem necessidade de definir spans manual
 
 ---
 
+## Adaptive Columns
+
+Utilizado para colunas equivalentes com conteudo definido no proprio markup.
+
+Exemplos:
+
+- Columns
+
+### Regra
+
+```css
+grid-template-columns:
+  repeat(
+    auto-fit,
+    minmax(0, 1fr)
+  );
+```
+
+### Objetivo
+
+Distribuir colunas de forma equilibrada sem precisar definir spans manuais.
+
+---
+
 ## Quando usar cada um
 
 ### Layout Grid
@@ -210,11 +233,23 @@ Exemplos:
 
 ---
 
+### Adaptive Columns
+
+Quando as colunas devem ter largura equivalente e o numero de colunas ja vem da estrutura do bloco.
+
+Exemplos:
+
+- Columns com 2, 3 ou 4 colunas equivalentes
+
+---
+
 ## Regra da Plataforma
 
 Não utilizar Layout Grid para coleções.
 
 Não utilizar Collection Grid para layout estrutural de página.
+
+Não utilizar Adaptive Columns para listas dinamicas de itens repetitivos (usar Collection Grid).
 
 
 # Themes

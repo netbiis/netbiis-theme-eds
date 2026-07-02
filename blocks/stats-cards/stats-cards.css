@@ -1,0 +1,94 @@
+/* ==================================================
+   STATS CARDS
+   ================================================== */
+
+.stats-cards {
+  --stats-cards-min-width: 220px;
+  --stats-cards-gap: var(--space-3);
+  --stats-cards-card-padding: var(--space-3);
+
+  background-color: var(--background-color);
+  padding-block: var(--space-5);
+}
+
+
+/* ==================================================
+   CONTENT WRAPPER
+   ================================================== */
+
+.stats-cards .stats-cards-content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--content-container-width);
+  margin-inline: auto;
+  padding-inline: var(--content-container-padding-mobile);
+}
+
+
+/* ==================================================
+   HEADER
+   ================================================== */
+
+.stats-cards .stats-cards-header {
+  margin-bottom: var(--space-3);
+}
+
+
+.stats-cards .stats-cards-header > :last-child {
+  margin-bottom: 0;
+}
+
+
+/* ==================================================
+   LIST
+   ================================================== */
+
+.stats-cards .stats-cards-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(
+        var(--stats-cards-min-width),
+        1fr
+      )
+    );
+  gap: var(--stats-cards-gap);
+}
+
+
+.stats-cards .stats-cards-item {
+  border: 1px solid var(--border-color);
+  background-color: var(--light-color);
+  padding: var(--stats-cards-card-padding);
+}
+
+
+.stats-cards .stats-cards-value {
+  margin: 0;
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+
+.stats-cards .stats-cards-label {
+  margin: var(--space-1) 0 0;
+}
+
+
+.stats-cards .stats-cards-extra {
+  margin-top: var(--space-1);
+}
+
+
+/* BP-LG */
+
+@media (width >= 1200px) {
+  .stats-cards .stats-cards-content {
+    padding-inline: var(--content-container-padding-desktop);
+  }
+}

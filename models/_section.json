@@ -98,7 +98,8 @@
         "cards",
         "columns",
         "fragment",
-        "accordion"
+        "accordion",
+        "stats-cards"
       ]
     }
   ]

@@ -77,6 +77,13 @@ Na maioria dos casos o Wrapper não necessita estilos.
 
 Deve ser utilizado apenas quando houver uma necessidade estrutural específica.
 
+Observação importante:
+As classes no padrão `{blockname}-wrapper` mostradas nos exemplos representam wrappers gerados automaticamente pelo Edge Delivery Services.
+
+Elas são descritivas da estrutura de renderização do Edge.
+
+Não devem ser tratadas como convenção para criação manual de novas classes.
+
 ---
 
 ## Block

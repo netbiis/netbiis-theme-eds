@@ -1,194 +1,50 @@
 # AI Context
 
-Este projeto segue a arquitetura Netbiis Edge Platform para Adobe Edge Delivery Services.
+## Objetivo Deste Documento
 
-O objetivo é criar blocos reutilizáveis, consistentes e desacoplados.
+Este arquivo e um resumo rapido para onboarding de IA e time.
 
----
+As regras normativas e obrigatorias de implementacao estao em:
 
-# Foundation
+- [AGENTS.md](../AGENTS.md)
+- [.github/copilot-instructions.md](../.github/copilot-instructions.md)
 
-A Foundation controla:
-
-- Containers
-- Breakpoints
-- Tokens Globais
-- Themes
-- Typography
-- Espaçamento Global
-
-Os blocos não devem recriar essas responsabilidades.
+Em caso de conflito, seguir primeiro [AGENTS.md](../AGENTS.md), depois [.github/copilot-instructions.md](../.github/copilot-instructions.md).
 
 ---
 
-# Container Strategy
+## Visao Arquitetural (Resumo)
 
-A largura da aplicação é controlada exclusivamente pela Foundation.
-
-Consumidores atuais:
-
-- main > .section > div
-- header nav
-- footer .footer > div
-
-Blocos não devem criar containers próprios.
+- Foundation controla regras globais: containers, content width, breakpoints, tokens globais e padroes de pagina.
+- Blocos controlam responsabilidade local: layout interno, componentes, interacoes e tokens locais.
+- Principio central: Foundation controla a pagina. Blocos controlam apenas a si mesmos.
 
 ---
 
-# Grid Strategy
+## Como Usar Este Contexto
 
-Existem três tipos oficiais de grid.
+Antes de alterar codigo, alinhar entendimento com [AGENTS.md](../AGENTS.md) e [.github/copilot-instructions.md](../.github/copilot-instructions.md).
 
----
+Para detalhes tecnicos por tema, consultar:
 
-## Layout Grid
-
-Usado para layouts estruturais.
-
-Exemplos:
-
-- Hero
-- CTA
-- Content Layout
-- Split Content
-
-```css
-grid-template-columns:
-  repeat(12, 1fr);
-```
+- Arquitetura: [docs/project-context.md](project-context.md), [docs/block-architecture.md](block-architecture.md)
+- Foundation e tokens: [docs/foundations.md](foundations.md), [docs/containers.md](containers.md)
+- Responsividade: [docs/responsive-strategy.md](responsive-strategy.md), [docs/breakpoints.md](breakpoints.md)
+- Templates e implementacao: [docs/block-template.md](block-template.md), [docs/development-guidelines.md](development-guidelines.md)
 
 ---
 
-## Collection Grid
+## Diretrizes De Decisao (Alto Nivel)
 
-Usado para listas e coleções.
-
-Exemplos:
-
-- Cards
-- Produtos
-- Cases
-- Logos
-- Team
-
-```css
-grid-template-columns:
-  repeat(
-    auto-fill,
-    minmax(..., 1fr)
-  );
-```
+- Reutilizar solucao existente antes de criar nova abstracao.
+- Reutilizar tokens e containers existentes antes de criar locais.
+- Promover para Foundation apenas quando houver reutilizacao clara entre multiplos blocos.
+- Evitar duplicar logica global dentro de blocos.
 
 ---
 
-## Adaptive Columns
+## Escopo Deste Documento
 
-Usado para o bloco Columns.
-
-```css
-grid-template-columns:
-  repeat(
-    auto-fit,
-    minmax(0, 1fr)
-  );
-```
-
----
-
-# Tokens
-
-## Tokens Globais
-
-Utilizar sempre que possível.
-
-Exemplos:
-
-```css
-var(--space-3)
-
-var(--container-default)
-
-var(--heading-font-size-l)
-
-var(--light-color)
-```
-
----
-
-## Tokens de Bloco
-
-Criar quando a configuração pertence exclusivamente ao componente.
-
-Exemplo:
-
-```css
-.cards {
-
-  --cards-min-width: 260px;
-
-}
-```
-
-```css
-.hero {
-
-  --hero-min-height: 300px;
-
-}
-```
-
----
-
-# Responsividade
-
-A plataforma é Mobile First.
-
-Implementar primeiro a experiência mobile.
-
-Adicionar melhorias progressivas através dos breakpoints oficiais.
-
----
-
-# Containers
-
-Nunca implementar:
-
-```css
-max-width: 1200px;
-
-max-width: 1280px;
-
-padding: 0 24px;
-
-padding: 0 32px;
-```
-
-Utilizar sempre os tokens da Foundation.
-
----
-
-# Espaçamento
-
-Nunca utilizar valores hardcoded.
-
-Exemplo incorreto:
-
-```css
-gap: 24px;
-
-padding: 40px;
-```
-
-Exemplo correto:
-
-```css
-gap: var(--space-3);
-
-padding: var(--space-5);
-```
-
----
-
-# Objetivo
-
-Todos os blocos da plataforma devem parecer criados pela mesma equipe, independentemente do desenvolvedor ou da IA utilizada.
+- Este arquivo nao substitui regras oficiais.
+- Este arquivo nao define valores finais de CSS.
+- Este arquivo existe para acelerar contexto e reduzir ambiguidades iniciais.

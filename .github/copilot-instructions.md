@@ -1,15 +1,30 @@
 # Netbiis Edge Platform
 
-Antes de criar ou alterar qualquer bloco, consulte obrigatoriamente:
+Estas instruções complementam o arquivo AGENTS.md do repositório.
 
-- docs/project-context.md
-- docs/foundations.md
-- docs/block-architecture.md
-- docs/responsive-strategy.md
-- docs/breakpoints.md
-- docs/development-guidelines.md
-- docs/containers.md
-- docs/block-template.md
+Use AGENTS.md como regra geral de desenvolvimento do projeto.
+Use este arquivo como regra específica de arquitetura visual, responsividade e composição de blocos da plataforma Netbiis.
+
+Nota sobre wrappers do Edge:
+A plataforma pode renderizar wrappers no padrão `{blockname}-wrapper` automaticamente via Edge Delivery Services.
+
+Quando este padrão aparecer na documentação ou no DOM, interpretar como estrutura gerada pelo Edge (contexto descritivo), não como recomendação para criar manualmente classes com esse padrão.
+
+Antes de criar ou alterar qualquer bloco:
+
+- Consulte primeiro AGENTS.md e este arquivo.
+- Consulte docs/responsive-strategy.md e docs/breakpoints.md somente quando adicionar ou alterar comportamento responsivo.
+- Consulte docs/block-architecture.md e docs/block-template.md somente quando criar bloco novo ou alterar estrutura interna de bloco.
+- Consulte docs/containers.md e docs/foundations.md somente quando a mudança envolver container, content width, tokens globais ou regras da Foundation.
+- Consulte docs/development-guidelines.md e docs/project-context.md somente quando a mudança afetar padrões gerais do projeto ou decisão arquitetural ampla.
+- Se houver dúvida de escopo, consulte primeiro AGENTS.md e este arquivo.
+- Se algum documento referenciado não estiver acessível, aplique as regras deste arquivo e de AGENTS.md.
+
+Referências recomendadas por tema:
+
+- Arquitetura e padrões: docs/project-context.md, docs/foundations.md, docs/block-architecture.md
+- Responsividade: docs/responsive-strategy.md, docs/breakpoints.md
+- Layout e containers: docs/containers.md, docs/block-template.md, docs/development-guidelines.md
 
 ---
 
@@ -71,7 +86,7 @@ Containers são responsabilidade exclusiva da Foundation.
 
 Nunca implementar containers dentro de blocos.
 
-## Nunca utilizar
+## Nunca utilizar em blocos como solução de container
 
 ```css
 max-width: 1200px;
@@ -143,11 +158,41 @@ content-narrow
 content-wide
 ```
 
+## Como funciona
+
+A Foundation define a largura interna através da Section.
+
+O bloco deve consumir as variáveis resolvidas pela Foundation.
+
+## Como selecionar a opção
+
+- A seleção de `content-default`, `content-narrow` ou `content-wide` deve ser feita na Section (via Section Metadata/Style).
+- A Foundation resolve as variáveis com base na classe aplicada na Section.
+- O bloco não deve definir essa classe na raiz do bloco.
+- Nunca definir `--content-container-width` diretamente dentro de um bloco.
+
 ## Utilizar
 
 ```css
 var(--content-container-width)
+
+var(--content-container-padding-mobile)
+
+var(--content-container-padding-desktop)
 ```
+
+## Estrutura interna recomendada no bloco
+
+- Dentro do bloco, criar um wrapper interno para o conteúdo (ex.: `.hero-content`, `.banner-content`, `.cta-content`).
+- Aplicar no wrapper interno:
+  - `max-width: var(--content-container-width);`
+  - `padding-inline: var(--content-container-padding-mobile);`
+- Em `BP-LG` (`@media (width >= 1200px)`), ajustar o wrapper para:
+  - `padding-inline: var(--content-container-padding-desktop);`
+- A raiz do bloco fica responsável pelo background full width.
+- O wrapper interno fica responsável por limitar largura e espaçamento do conteúdo.
+- Nunca aplicar `max-width` de content width direto na `.section`.
+- Nunca definir `--content-container-width` dentro do bloco.
 
 ## Nunca utilizar
 
@@ -193,6 +238,17 @@ var(--space-5)
 var(--space-6)
 ```
 
+Escala oficial de spacing (Foundation):
+
+- --space-1: 8px
+- --space-2: 16px
+- --space-3: 24px
+- --space-4: 32px
+- --space-5: 48px
+- --space-6: 64px
+
+Para escolher o token adequado, consulte também docs/foundations.md.
+
 ---
 
 # Breakpoints
@@ -208,6 +264,8 @@ docs/breakpoints.md
 ## Permitido
 
 ```css
+@media (width >= 600px)
+
 @media (width >= 900px)
 
 @media (width >= 1200px)
@@ -217,7 +275,9 @@ docs/breakpoints.md
 
 ## Obrigatório
 
-Sempre comentar o breakpoint.
+Adicionar comentário imediatamente acima de cada media query, identificando o breakpoint.
+
+Cada media query deve ter seu próprio comentário, inclusive quando houver múltiplos breakpoints no mesmo bloco.
 
 Exemplo:
 
@@ -348,7 +408,8 @@ Não permitido:
 ### Regra prática
 
 - Utilizado por um único bloco → Token Local
-- Utilizado por múltiplos blocos → Avaliar promoção para Foundation
+- Utilizado por 2 ou mais blocos → Promover para Foundation
+- Em caso de dúvida sobre reutilização futura → Manter local e registrar avaliação para promoção posterior
 
 ---
 
@@ -408,6 +469,12 @@ main
 .section
 ```
 
+Para criar background full width sem alterar `.section`:
+
+- Aplique o background na raiz do bloco.
+- Utilize content width e variáveis da Foundation para controlar o conteúdo interno.
+- Nunca sobrescreva estilos de `.section` diretamente.
+
 ---
 
 # Processo de Criação de Blocos
@@ -421,6 +488,13 @@ Escolher apenas uma:
 - Layout Grid
 - Collection Grid
 - Adaptive Columns
+
+Critério de escolha:
+
+- Use Layout Grid quando o layout exigir posicionamento estrutural explícito em colunas.
+- Use Collection Grid quando houver itens repetidos com quantidade variável.
+- Use Adaptive Columns quando as colunas forem equivalentes e o conteúdo já vier em colunas definidas no markup.
+- Se um bloco se encaixar em mais de uma opção, priorize Collection Grid para listas repetitivas e Layout Grid para estrutura de página.
 
 ---
 

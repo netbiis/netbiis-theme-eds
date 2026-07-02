@@ -280,5 +280,24 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "stats-card",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "value",
+        "value": "",
+        "label": "Value"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "value": "",
+        "label": "Label"
+      }
+    ]
   }
 ]

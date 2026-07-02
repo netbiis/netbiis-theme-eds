@@ -180,7 +180,7 @@ Todos os blocos devem:
 
 ## Escolha correta do Grid
 
-A plataforma utiliza dois tipos de grid.
+A plataforma utiliza tres tipos oficiais de grid.
 
 ---
 
@@ -222,11 +222,33 @@ Exemplo:
 
 ---
 
+### Adaptive Columns
+
+Utilizado para colunas equivalentes definidas no proprio markup.
+
+Exemplo:
+
+```css
+.columns > div {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(0, 1fr)
+    );
+}
+```
+
+---
+
 ## Regra
 
 Hero, CTA, Footer e estruturas similares devem utilizar Layout Grid.
 
 Cards, Produtos, Logos e listas similares devem utilizar Collection Grid.
+
+Columns e estruturas equivalentes devem utilizar Adaptive Columns.
 
 
 # Checklist para Pull Request

@@ -21,6 +21,20 @@ Todos os blocos devem utilizar exclusivamente os breakpoints documentados neste 
 
 ## Utilização
 
+## Sintaxe de Media Query
+
+No contexto da plataforma, as sintaxes abaixo sao equivalentes:
+
+```css
+@media (min-width: 900px)
+```
+
+```css
+@media (width >= 900px)
+```
+
+Para manter consistencia desta documentacao e dos exemplos da Netbiis, priorizar `@media (width >= ...)` neste repositorio.
+
 ### BP-MD
 
 ```css
