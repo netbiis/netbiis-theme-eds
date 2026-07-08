@@ -61,9 +61,17 @@ async function loadFonts() {
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
-function buildAutoBlocks() {
+function buildAutoBlocks(main) {
   try {
-    // TODO: add auto block, if needed
+    // Auto-open modal for links pointing to /modals/ paths
+    main.querySelectorAll('a[href*="/modals/"]').forEach((link) => {
+      link.addEventListener('click', async (e) => {
+        e.preventDefault();
+        // eslint-disable-next-line import/no-cycle
+        const { openModal } = await import('../blocks/modal/modal.js');
+        openModal(link.href);
+      });
+    });
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);

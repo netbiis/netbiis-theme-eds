@@ -1,0 +1,93 @@
+.modal {
+  /* Local Tokens */
+  --modal-backdrop-bg: rgb(19 19 19 / 75%);
+  --modal-max-width: 900px;
+  --modal-close-size: 44px;
+  --modal-icon-size: 24px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal dialog::backdrop {
+  background-color: var(--modal-backdrop-bg);
+}
+
+.modal dialog {
+  overscroll-behavior: none;
+  overflow-y: hidden;
+  width: calc(100vw - var(--space-3) * 2);
+  max-width: var(--modal-max-width);
+  max-height: calc(100dvh - 2 * var(--nav-height));
+  padding: 0;
+  border: 1px solid var(--dark-color);
+}
+
+.modal dialog .modal-content {
+  box-sizing: border-box;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  width: 100%;
+  max-height: calc(100dvh - 2 * var(--nav-height) - var(--space-3) * 2);
+  padding: var(--space-3);
+  padding-top: 0;
+  margin-top: var(--modal-close-size);
+}
+
+/* BP-MD */
+@media (width >= 900px) {
+  .modal dialog {
+    width: calc(100vw - var(--space-6));
+  }
+
+  .modal dialog .modal-content {
+    max-height: calc(100dvh - 2 * var(--nav-height) - var(--space-6));
+    padding: var(--space-4);
+    padding-top: 0;
+  }
+}
+
+.modal .close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--modal-close-size);
+  height: var(--modal-close-size);
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  background-color: transparent;
+  color: var(--text-color);
+  line-height: 0;
+}
+
+.modal .close-button .icon.icon-close {
+  content: '';
+  width: var(--modal-icon-size);
+  height: var(--modal-icon-size);
+}
+
+.modal .close-button .icon.icon-close::before,
+.modal .close-button .icon.icon-close::after {
+  content: '';
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: var(--modal-icon-size);
+  height: 2px;
+  border-radius: 2px;
+  background-color: currentcolor;
+}
+
+.modal .close-button .icon.icon-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.modal dialog .section {
+  padding: 0;
+}
